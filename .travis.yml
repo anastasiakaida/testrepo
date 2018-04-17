@@ -4,9 +4,9 @@ notifications:
 language: python
 python: 3.6
 script:
-        - num_errors=`flake8 - --max-line-length=120 \;| wc -l`
+        - errors=`flake8 - --max-line-length=120 \;`
         - |
-            if [ $num_errors -eq 0 ]; then
+            if [ -z "$errors" ]; then
               true 
             else
               echo "$errors"
