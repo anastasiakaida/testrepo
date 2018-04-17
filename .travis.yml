@@ -4,8 +4,7 @@ notifications:
 language: python
 python: 3.6
 script:
-        - errors=`jupyter nbconvert rel_borrower.ipynb --stdout --to script | flake8 - --max-line-length=120 --ignore=W391 \; `
-        - num_errors=`echo -n "$errors" | wc -l`
+        - num_errors=`flake8 - --max-line-length=120 \;| wc -l`
         - |
             if [ $num_errors -eq 0 ]; then
               true 
